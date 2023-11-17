@@ -8,25 +8,25 @@ public class BankTest {
         Bank bank = new Bank();
 
         try {
-            BankAccount account1 = bank.createAccount("John Doe", 1000);
-            BankAccount account2 = bank.createAccount("Jane Doe", 500);
+            BankAccount account1 = bank.createAccount("Володимир Стаценко", 7777);
+            BankAccount account2 = bank.createAccount("Арсен Солов'ян", 6666);
 
-            System.out.println("Initial state:");
+            System.out.println("Початковий баланс:");
             System.out.println(account1.getAccountSummary());
             System.out.println(account2.getAccountSummary());
 
-            System.out.println("\nTransferring money...");
+            System.out.println("\nЗачекайте, робимо переказ коштів.. :)");
             bank.transferMoney(account1.getAccountNumber(), account2.getAccountNumber(), 200);
 
-            System.out.println("\nAfter transfer:");
+            System.out.println("\nПісля переказу:");
             System.out.println(account1.getAccountSummary());
             System.out.println(account2.getAccountSummary());
 
-            System.out.println("\nTrying to withdraw a negative amount...");
+            System.out.println("\nСпроба переказати від'ємну суму...");
             account1.withdraw(-100);
 
         } catch (AccountNotFoundException | InsufficientFundsException | NegativeAmountException e) {
-            System.out.println("Exception: " + e.getMessage());
+            System.out.println("Помилка: " + e.getMessage());
         }
     }
 }
